@@ -1,0 +1,375 @@
+:root {
+  --pink: #f8d7e6;
+  --pink-deep: #e9a8c6;
+  --lilac: #dccdf5;
+  --lilac-deep: #a98bdc;
+  --mint: #cdf0e3;
+  --mint-deep: #6fc3a3;
+  --ink: #3b3550;
+  --muted: #7b7491;
+  --white: #ffffff;
+  --error: #c0476f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #fdf0f6, #f1ebfb 55%, #eefaf5);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: var(--white);
+  box-shadow: 0 4px 16px rgba(120, 100, 160, 0.12);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--white);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(120, 100, 160, 0.12);
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--lilac);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--white);
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--lilac-deep);
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--lilac-deep);
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-pink {
+  background: var(--pink-deep);
+}
+
+.btn-mint {
+  background: var(--mint-deep);
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.message {
+  margin-top: 12px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: none;
+}
+
+.message.error {
+  display: block;
+  background: var(--pink);
+  color: var(--error);
+}
+
+.message.success {
+  display: block;
+  background: var(--mint);
+  color: #2f7a5e;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.filters input {
+  flex: 1 1 200px;
+}
+
+.filters select {
+  flex: 0 0 160px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 11px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--lilac);
+}
+
+th {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+td a {
+  color: var(--lilac-deep);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.status-select {
+  width: auto;
+  padding: 6px 10px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.status-wishlist  { background: var(--lilac); }
+.status-applied   { background: #d6e6fb; }
+.status-interview { background: #fdeccb; }
+.status-offer     { background: var(--mint); }
+.status-rejected  { background: var(--pink); }
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pagination div {
+  display: flex;
+  gap: 8px;
+
+}
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--lilac);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  resize: vertical;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: var(--lilac-deep);
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(59, 53, 80, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.modal-box {
+  background: var(--white);
+  width: 100%;
+  max-width: 640px;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(60, 50, 90, 0.3);
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal-box h3 {
+  margin: 20px 0 10px;
+  font-size: 16px;
+}
+
+.note-card {
+  background: #faf7fe;
+  border: 1px solid var(--lilac);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.note-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tag {
+  background: var(--mint);
+  color: #2f7a5e;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.note-card ul {
+  margin: 8px 0;
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.note-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.note-actions select {
+  width: auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 18px 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(120, 100, 160, 0.12);
+  border-top: 5px solid var(--lilac-deep);
+}
+
+.stat-number {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.stat-wishlist  { border-top-color: var(--lilac-deep); }
+.stat-applied   { border-top-color: #8db6ee; }
+.stat-interview { border-top-color: #f0c26b; }
+.stat-offer     { border-top-color: var(--mint-deep); }
+.stat-rejected  { border-top-color: var(--pink-deep); }
